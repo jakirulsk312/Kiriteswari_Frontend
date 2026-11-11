@@ -1,0 +1,206 @@
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400;1,500&family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Inter:wght@300;400;500;600;700&family=Noto+Sans+Bengali:wght@400;500;600;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 35 30% 97%;
+    --foreground: 20 25% 12%;
+
+    --card: 35 25% 95%;
+    --card-foreground: 20 25% 12%;
+
+    --popover: 35 30% 97%;
+    --popover-foreground: 20 25% 12%;
+
+    --primary: 30 90% 50%;
+    --primary-foreground: 0 0% 100%;
+
+    --secondary: 45 85% 55%;
+    --secondary-foreground: 20 25% 12%;
+
+    --muted: 35 20% 92%;
+    --muted-foreground: 20 10% 45%;
+
+    --accent: 0 70% 42%;
+    --accent-foreground: 0 0% 100%;
+
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 210 40% 98%;
+
+    --border: 35 20% 88%;
+    --input: 35 20% 88%;
+    --ring: 30 90% 50%;
+
+    --radius: 0.75rem;
+
+    --gold: 45 85% 55%;
+    --gold-foreground: 20 25% 12%;
+    --saffron: 30 90% 50%;
+    --saffron-light: 30 85% 65%;
+    --deep-red: 0 70% 42%;
+    --cream: 35 30% 97%;
+    --temple-dark: 20 25% 8%;
+
+    --sidebar-background: 0 0% 98%;
+    --sidebar-foreground: 240 5.3% 26.1%;
+    --sidebar-primary: 240 5.9% 10%;
+    --sidebar-primary-foreground: 0 0% 98%;
+    --sidebar-accent: 240 4.8% 95.9%;
+    --sidebar-accent-foreground: 240 5.9% 10%;
+    --sidebar-border: 220 13% 91%;
+    --sidebar-ring: 217.2 91.2% 59.8%;
+
+    --font-display: 'Playfair Display', serif;
+    --font-heading: 'Cormorant Garamond', serif;
+    --font-body: 'Inter', sans-serif;
+  }
+
+  .dark {
+    --background: 20 25% 8%;
+    --foreground: 35 20% 92%;
+
+    --card: 20 20% 12%;
+    --card-foreground: 35 20% 92%;
+
+    --popover: 20 20% 12%;
+    --popover-foreground: 35 20% 92%;
+
+    --primary: 30 90% 50%;
+    --primary-foreground: 0 0% 100%;
+
+    --secondary: 45 70% 45%;
+    --secondary-foreground: 0 0% 100%;
+
+    --muted: 20 15% 18%;
+    --muted-foreground: 35 15% 60%;
+
+    --accent: 0 65% 50%;
+    --accent-foreground: 0 0% 100%;
+
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 210 40% 98%;
+
+    --border: 20 15% 22%;
+    --input: 20 15% 22%;
+    --ring: 30 90% 50%;
+
+    --sidebar-background: 240 5.9% 10%;
+    --sidebar-foreground: 240 4.8% 95.9%;
+    --sidebar-primary: 224.3 76.3% 48%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 240 3.7% 15.9%;
+    --sidebar-accent-foreground: 240 4.8% 95.9%;
+    --sidebar-border: 240 3.7% 15.9%;
+    --sidebar-ring: 217.2 91.2% 59.8%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+    font-family: var(--font-body);
+  }
+
+  h1, h2, h3 {
+    font-family: var(--font-display);
+  }
+
+  h4, h5, h6 {
+    font-family: var(--font-heading);
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+}
+
+@layer utilities {
+  .font-bengali {
+    font-family: 'Noto Sans Bengali', sans-serif;
+  }
+
+  .text-gradient-gold {
+    @apply bg-clip-text text-transparent;
+    background-image: linear-gradient(135deg, hsl(var(--saffron)), hsl(var(--gold)), hsl(var(--saffron-light)));
+  }
+
+  .bg-gradient-saffron {
+    background: linear-gradient(135deg, hsl(var(--saffron)), hsl(var(--gold)));
+  }
+
+  .bg-gradient-dark-overlay {
+    background: linear-gradient(180deg, hsla(var(--temple-dark), 0.7) 0%, hsla(var(--temple-dark), 0.4) 50%, hsla(var(--temple-dark), 0.8) 100%);
+  }
+
+  .bg-gradient-section {
+    background: linear-gradient(180deg, hsl(var(--background)) 0%, hsl(var(--card)) 100%);
+  }
+
+  .shadow-gold {
+    box-shadow: 0 4px 20px -4px hsla(var(--gold), 0.3);
+  }
+
+  .shadow-saffron {
+    box-shadow: 0 8px 30px -8px hsla(var(--saffron), 0.4);
+  }
+
+  .border-gradient-gold {
+    border-image: linear-gradient(135deg, hsl(var(--saffron)), hsl(var(--gold))) 1;
+  }
+}
+
+@layer components {
+  .section-padding {
+    @apply px-4 py-16 md:px-8 md:py-24 lg:px-16 lg:py-32;
+  }
+
+  .container-temple {
+    @apply mx-auto max-w-7xl px-4 sm:px-6 lg:px-8;
+  }
+}
+
+/* Scroll indicator animation */
+@keyframes scroll-bounce {
+  0%, 100% { transform: translateY(0); opacity: 1; }
+  50% { transform: translateY(12px); opacity: 0.5; }
+}
+
+.animate-scroll-bounce {
+  animation: scroll-bounce 2s ease-in-out infinite;
+}
+
+/* Parallax helper */
+@keyframes float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-10px); }
+}
+
+.animate-float {
+  animation: float 3s ease-in-out infinite;
+}
+
+/* Shimmer for gold elements */
+@keyframes shimmer {
+  0% { background-position: -200% center; }
+  100% { background-position: 200% center; }
+}
+
+.animate-shimmer {
+  background-size: 200% auto;
+  animation: shimmer 3s linear infinite;
+}
+@keyframes float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-8px); }
+}
+
+.float-animation {
+  animation: float 2s ease-in-out infinite;
+}
